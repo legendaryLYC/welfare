@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.commonweal.background.mapper.WelfareMapper" >
+  <resultMap id="BaseResultMap" type="com.commonweal.background.entity.Welfare" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="plan" property="plan" jdbcType="VARCHAR" />
+    <result column="charity_mission" property="charityMission" jdbcType="VARCHAR" />
+    <result column="charity_officer" property="charityOfficer" jdbcType="VARCHAR" />
+    <result column="component" property="component" jdbcType="VARCHAR" />
+    <result column="head_img" property="headImg" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, title, remark, plan, charity_mission, charity_officer, component, head_img
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from welfare
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from welfare
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.commonweal.background.entity.Welfare" >
+    insert into welfare (id, title, remark, 
+      plan, charity_mission, charity_officer, 
+      component, head_img)
+    values (#{id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{plan,jdbcType=VARCHAR}, #{charityMission,jdbcType=VARCHAR}, #{charityOfficer,jdbcType=VARCHAR}, 
+      #{component,jdbcType=VARCHAR}, #{headImg,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.commonweal.background.entity.Welfare" >
+    insert into welfare
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="plan != null" >
+        plan,
+      </if>
+      <if test="charityMission != null" >
+        charity_mission,
+      </if>
+      <if test="charityOfficer != null" >
+        charity_officer,
+      </if>
+      <if test="component != null" >
+        component,
+      </if>
+      <if test="headImg != null" >
+        head_img,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="plan != null" >
+        #{plan,jdbcType=VARCHAR},
+      </if>
+      <if test="charityMission != null" >
+        #{charityMission,jdbcType=VARCHAR},
+      </if>
+      <if test="charityOfficer != null" >
+        #{charityOfficer,jdbcType=VARCHAR},
+      </if>
+      <if test="component != null" >
+        #{component,jdbcType=VARCHAR},
+      </if>
+      <if test="headImg != null" >
+        #{headImg,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.commonweal.background.entity.Welfare" >
+    update welfare
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="plan != null" >
+        plan = #{plan,jdbcType=VARCHAR},
+      </if>
+      <if test="charityMission != null" >
+        charity_mission = #{charityMission,jdbcType=VARCHAR},
+      </if>
+      <if test="charityOfficer != null" >
+        charity_officer = #{charityOfficer,jdbcType=VARCHAR},
+      </if>
+      <if test="component != null" >
+        component = #{component,jdbcType=VARCHAR},
+      </if>
+      <if test="headImg != null" >
+        head_img = #{headImg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.commonweal.background.entity.Welfare" >
+    update welfare
+    set title = #{title,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      plan = #{plan,jdbcType=VARCHAR},
+      charity_mission = #{charityMission,jdbcType=VARCHAR},
+      charity_officer = #{charityOfficer,jdbcType=VARCHAR},
+      component = #{component,jdbcType=VARCHAR},
+      head_img = #{headImg,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from welfare
+  </select>
+  <select id="selectByName" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from welfare
+    where title like '%${welfareName}%'
+  </select>
+  <select id="selectByComponent" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from welfare
+    where component like '%${welfareComponent}%'
+  </select>
+</mapper>

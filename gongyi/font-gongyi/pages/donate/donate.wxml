@@ -1,0 +1,33 @@
+<!--pages/donate/donate.wxml-->
+<view bindtap="gototdetail" data-page='/pages/details/details' data-id='{{welfare.id}}'>
+  <image src='/images/back.png' class="img"></image>
+  <text class="backdetail">返回详情</text>
+</view>
+<view>
+  <image src='{{welfare.headImg}}' style="width:55%; margin-left:5px; height:160px;"></image>
+  <text class="title">{{welfare.title}}</text>
+</view>
+<view>
+ <button wx:for="{{monryArray}}" type="default" size="mini"  bindtap="changeMoney" class="button" 
+         style="margin-top:20px; margin-left:10%;" data-money='{{item}}'>{{item}}元</button>
+</view>
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="flex-wrp" style="flex-direction:row;">
+    <input type="number" style="margin-left:15%;margin-top:15px;" name="money"  
+      confirm-type="search"placeholder="自定金额" value="{{money}}"/>
+  </view>
+  <checkbox-group style="margin-top:15px;">
+    <label class="checkbox">
+      <checkbox value="" class="checkbox1"  /><text style="margin-left:3px;">订阅服务通知，接收项目反馈\n</text>
+      <checkbox value="" class="checkbox1" style="margin-top:3px; margin-bottom:10px;" /><text style="margin-left:3px;">匿名捐助\n</text>
+    </label>
+  </checkbox-group>
+  <text style="margin-top:5px; margin-left:55px; margin-right:3px; text-decoration:underline">用户协议</text>
+    <radio-group name="protocol">
+    <label>
+      <radio value="1" style="margin-right:2px;"/>同意</label>
+    <label>
+      <radio value="0" style="margin-right:2px;"/>拒绝</label>
+  </radio-group>
+  <button type="warn" form-type="submit" style="width:60%;margin-top:30px;margin-left:20%" class="button">确定</button>
+</form>

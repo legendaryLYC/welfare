@@ -1,0 +1,49 @@
+<!--index.wxml-->
+
+<form bindsubmit="formSubmit" bindreset="formReset">
+<view class="container">
+  <view class="section" >
+      <view class="title" >志愿者申请表</view>
+     <view class="flex-wrp" style="flex-direction:row;">
+       <view class="font-a"> 姓名：</view>
+       <input type="text" style="margin-top:-4px;" name="name" placeholder="姓名" value='{{form.name}}'/>
+      </view>
+      <view class="flex-wrp" style="flex-direction:row;">
+        <view class="section__title">性别</view>
+        <radio-group name="sex">
+          <label>
+            <radio value="1" checked/>男</label>
+          <label>
+            <radio value="0" />女</label>
+        </radio-group>
+      </view>
+      <view class="flex-wrp" style="flex-direction:row;">
+       <view class="font-a"> 年龄： </view>
+       <input type="text" style="margin-top:-4px;" placeholder="年龄" value='{{form.age}}' name="age"/>
+      </view>
+      <view class="flex-wrp" style="flex-direction:row;">
+       <view class="font-a"> 身份证号：</view>
+       <input type="text" style="margin-top:-4px;" placeholder="身份证号" value='{{form.identify}}' name="identify"/>
+      </view>
+      <view class="flex-wrp" style="flex-direction:row;">
+       <view class="font-a"> 出生日期： </view>
+       <input type="text" style="margin-top:-4px;" placeholder="出生日期" value='{{form.birthday}}' name="birthday"/>
+      </view>
+      <view class="flex-wrp" style="flex-direction:row;">
+       <view class="font-a"> 家庭住址：</view>
+       <input type="text" style="margin-top:-4px;" placeholder="家庭住址：" value='{{form.address}}' name="address"/>
+      </view>
+      <view class="flex-wrp" style="flex-direction:row;">
+       <view class="font-a"> 联系方式：</view>
+       <input type="text" style="margin-top:-4px;" placeholder="手机号" value='{{form.phoneNum}}' name="phoneNum"/>
+      </view>
+
+      <view class="btn-area">
+        <button form-type="submit" type="primary" class="btn">提交申请</button>
+        <button form-type="reset" class="btn">重置</button>
+      </view>
+
+  </view>
+</view>
+</form>
+<tabbar user-auth="0" active="/pages/application/application"></tabbar>  

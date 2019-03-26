@@ -1,0 +1,4 @@
+/* pages/department/department.wxss */
+.cu-item{
+  width:50%;
+}

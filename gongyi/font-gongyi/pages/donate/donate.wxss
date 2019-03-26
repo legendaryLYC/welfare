@@ -1,0 +1,28 @@
+/* pages/donate/donate.wxss */
+.img{
+  width:30px; 
+  height:30px;
+  margin-bottom:5px;
+  margin-top:3px;
+}
+.backdetail{
+  position:absolute;
+   font-weight:bold; 
+   line-height:20px;
+    margin-left:5px;
+    margin-top:10px;
+}
+.title{
+  position:absolute;
+   margin-left:15px;
+   font-weight:bold;
+    color:#cd333c;
+    margin-top:70px;
+}
+.button-hover {
+  background-color: red;
+}
+.checkbox1{
+  margin-left:15%;
+  flex-wrap:wrap;
+}

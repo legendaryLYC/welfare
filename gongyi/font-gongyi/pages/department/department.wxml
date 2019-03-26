@@ -1,0 +1,21 @@
+<!--pages/department/department.wxml-->
+<view class='bg-white padding'>
+  <view class="cu-list grid">
+    <view class="cu-item">
+      <text>科室名称</text>
+    </view>
+    <view class="cu-item">
+      <text>操作</text>
+    </view>
+  </view>
+   <view class="cu-list grid" wx:for="{{content}}">
+    <view class="cu-item" >
+      <text calss="name">{{item.name}}</text>
+    </view>
+    <view class="cu-item" >
+        <view bindtap="gotoPage" data-page="/pages/edit-department/edit-department" data-id="{{item.id}}">修改/</view>
+        <view bindtap='del'  data-id='{{item.id}}'>删除</view>
+    </view>
+  </view>
+</view>
+<tabbar user-auth="1" active="/pages/department/department"></tabbar>  

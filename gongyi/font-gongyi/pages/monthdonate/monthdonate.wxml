@@ -1,0 +1,22 @@
+<!--pages/monthdonate/monthdonate.wxml-->
+<view class="table">
+  <view class="tr">
+    <image src='/images/water.png' style="margin-top:3px;margin-left:0.5%;width:99%;height:150px;"></image>
+  </view>
+  <view class="tr">
+    <text class="title" style="margin:10px 0 0 10px">标题：不要让水成为我们的最后一滴眼泪</text>
+  </view>
+  <view class="tr">
+    <text class="title" style="margin:10px 0 0 10px">摘要：<text style="font-weight:normal">预计到2025年，世界上缺水人口将增长一倍，40个国家和地区将面临淡水匮乏。我国人口众多，是世界第一人口大国，虽然我国也是水资源大国，但人均淡水资源只占世界人均淡水资源的四分之一。
+      </text>
+    </text>
+  </view>
+  <view class="tdItem" bindtap="gotoPage" wx:for="{{welfareList}}" data-page="/pages/details/details" data-id="{{item.id}}">
+    <view style="border:1px solid #bfbfbf; margin-left:2px;">
+      <image src='{{item.headImg}}' style="margin-top:2px;margin-left:8%;width:84%;height:80px;"></image>
+      <text class="information">\n标题：{{item.title}}\n</text>
+      <text class="information">摘要：{{item.remark}}\n</text>
+      <text class="information">信息：已有100人进行月捐1000次</text>
+    </view>
+  </view>
+</view>

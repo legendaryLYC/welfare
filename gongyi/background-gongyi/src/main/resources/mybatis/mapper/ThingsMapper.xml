@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.commonweal.background.mapper.ThingsMapper" >
+  <resultMap id="BaseResultMap" type="com.commonweal.background.entity.Things" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="head_img" property="headImg" jdbcType="VARCHAR" />
+    <result column="is_donate" property="isDonate" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="introduction" property="introduction" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, type, head_img, is_donate, user_id, introduction
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from things
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from things
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.commonweal.background.entity.Things" >
+    insert into things (id, type, head_img, 
+      is_donate, user_id, introduction
+      )
+    values (#{id,jdbcType=BIGINT}, #{type,jdbcType=VARCHAR}, #{headImg,jdbcType=VARCHAR}, 
+      #{isDonate,jdbcType=INTEGER}, #{userId,jdbcType=BIGINT}, #{introduction,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.commonweal.background.entity.Things" >
+    insert into things
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="headImg != null" >
+        head_img,
+      </if>
+      <if test="isDonate != null" >
+        is_donate,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="introduction != null" >
+        introduction,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="headImg != null" >
+        #{headImg,jdbcType=VARCHAR},
+      </if>
+      <if test="isDonate != null" >
+        #{isDonate,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="introduction != null" >
+        #{introduction,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.commonweal.background.entity.Things" >
+    update things
+    <set >
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="headImg != null" >
+        head_img = #{headImg,jdbcType=VARCHAR},
+      </if>
+      <if test="isDonate != null" >
+        is_donate = #{isDonate,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="introduction != null" >
+        introduction = #{introduction,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.commonweal.background.entity.Things" >
+    update things
+    set type = #{type,jdbcType=VARCHAR},
+      head_img = #{headImg,jdbcType=VARCHAR},
+      is_donate = #{isDonate,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=BIGINT},
+      introduction = #{introduction,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectAll" resultMap="BaseResultMap">
+  select
+  <include refid="Base_Column_List" />
+  from things
+  where user_id=#{userId}
+  and is_donate = 0
+  </select>
+  <select id="selectByComponent" resultMap="BaseResultMap">
+  select
+  <include refid="Base_Column_List" />
+  from things
+  where user_id=#{userId}
+  and is_donate = 0
+  and type like '%${thingComponent}%'
+  </select>
+  <update id="sellThings">
+    update things
+    set is_donate = 1
+    where id = #{thingId}
+  </update>
+</mapper>

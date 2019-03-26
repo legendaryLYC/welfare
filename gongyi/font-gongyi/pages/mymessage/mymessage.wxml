@@ -1,0 +1,18 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="section" >
+      <view class="title" >我的消息</view>
+      <view class="flex-wrp" style="flex-direction:row;" wx:for="{{myMessege}}">
+        <view class="font-a">消息通知：</view>
+        <view class="font-a">{{item.detail}}</view>
+      </view>
+      <view class='tr' wx:if="{{myMessege.length == 0}}">
+        <view class='td'>暂无消息</view>
+      </view>
+      <view class="btn-area">
+        <button type="primary" size = "mini"  bindtap="bindButtonTap">返回</button>
+      </view>
+
+  </view>
+</view>
+<tabbar user-auth="0" active="/pages/index/index"></tabbar>  

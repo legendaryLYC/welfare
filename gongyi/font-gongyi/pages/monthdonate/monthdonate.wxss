@@ -1,0 +1,41 @@
+/* pages/monthdonate/monthdonate.wxss */
+.table{
+  border:1px solid #ccc;
+  width:100%;
+}
+.tr{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  font-weight:bold;
+  font-size:10px;
+}
+.th{
+  padding:10px;
+  width:100%;
+  text-align: center;
+  font-size:13px;
+}
+.td{
+  padding:10px;
+  width:100%;
+  text-align: center;
+  font-size:11px;
+}
+.tdItem{
+  float: left;
+  width:45%;
+  text-align: center;
+  font-size:11px;
+  margin-left:3%;
+}
+.title{
+  margin-left:15px;
+  margin-top:5px;
+  font-size:18px;
+  font-weight: 700px;
+}
+.information{
+  margin:10px 0 0 10px;
+  text-align: left;
+}

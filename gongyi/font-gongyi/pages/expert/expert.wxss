@@ -1,0 +1,4 @@
+/* pages/expert/expert.wxss */
+.doc_img{
+  height: 110px;
+}

@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view class="container" style="margin-top:-65px;">
+  <view class="section">
+    <view class="flex-wrp" style="flex-direction:row;">
+      <input type="text" confirm-type="search" bindinput="inputwelfareComponent" placeholder="请输入分类名称" value="{{welfareComponent}}" />
+      <view class="btn-area">
+        <button type="primary" size="mini"  bindtap="bindButtonTap">搜公益分类</button>
+      </view>
+    </view>
+  </view>
+  <view class='table' style="margin-top:20px;">
+    <view class='tr'>
+      <view class='td' bindtap="bindButtonTap1" data-component="疾病救助">
+        <view><image src='/images/help.png' style="width:30px;height:30px;"></image></view>
+        <view>疾病救助</view>
+      </view>
+      <view class='td' bindtap="bindButtonTap1" data-component="救助助学">
+        <view><image src='/images/helpStudy.png' style="width:30px;height:30px;"></image></view>
+        <view>救助助学</view>
+      </view>
+      <view class='td' bindtap="bindButtonTap1" data-component="扶贫救济">
+        <view><image src='/images/support.png' style="width:30px;height:30px;"></image></view>
+        <view>扶贫救济</view>
+      </view>
+       <view class='td' bindtap="bindButtonTap1" data-component="其他公益">
+        <view><image src='/images/other.png' style="width:30px;height:30px;"></image></view>
+        <view>其他公益</view>
+      </view>
+    </view>
+  </view>
+  <view class='table'>
+    <view class='tr' wx:for="{{welfareList}}" data-page="/pages/details/details" data-id="{{item.id}}" bindtap="gotoPage">
+      <view class='td'><image src='{{item.headImg}}' style="width:70%;height:60px;margin-left:15%"></image></view>
+      <view class='th' style="margin-top:15px;"><text>{{item.title}}\n{{item.plan}}</text></view>
+    </view>
+  </view>
+</view>
+<tabbar user-auth="0" active="/pages/sort/sort"></tabbar>  

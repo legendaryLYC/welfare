@@ -1,0 +1,26 @@
+<!--index.wxml-->
+
+<view class="container">
+  <view class="section" >
+      <view class="title" >医院信息修改</view>
+     <view class="flex-wrp" style="flex-direction:row;">
+       <view class="font-a"> 医院名：</view>
+       <input type="text"  name="name" placeholder="医院名" value='{{hospital.name}}' bindinput="nameChange"/>
+      </view>
+      <view class="flex-wrp" style="flex-direction:row;">
+        <view class="section__title">医院地址:</view>
+        <input type="text"  name="address" placeholder="医院地址" value='{{hospital.address}}' bindinput="addressChange"/>
+      </view>
+      <view class="flex-wrp" style="flex-direction:row;">
+       <view class="font-a"> 医院介绍：</view>
+       <input type="text"  placeholder="医院介绍" value='{{hospital.detail}}' name="detail" bindinput="detailChange"/>
+      </view>
+      <view class="btn-area">
+        <button type="submit" type="primary" class="btn" bindtap="edit">
+           修改
+        </button>
+        <button class="btn" bindtap="bindButtonTap">取消</button>
+      </view>
+  </view>
+</view>
+<tabbar user-auth="1" active="/pages/examine/examine"></tabbar>

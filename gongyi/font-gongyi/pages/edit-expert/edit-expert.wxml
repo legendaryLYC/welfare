@@ -1,0 +1,26 @@
+<!--index.wxml-->
+
+<view class="container">
+  <view class="section" >
+      <view class="title" >专家信息修改</view>
+     <view class="flex-wrp" style="flex-direction:row;">
+       <view class="font-a"> 专家名：</view>
+       <input type="text"  name="name" placeholder="专家名" value='{{hospital.name}}' bindinput="nameChange"/>
+      </view>
+      <view class="flex-wrp" style="flex-direction:row;">
+        <view class="section__title">专家介绍:</view>
+        <input type="text"  name="address" placeholder="专家介绍" value='{{hospital.detail}}' bindinput="detailChange"/>
+      </view>
+      <view class="flex-wrp" style="flex-direction:row;">
+       <view class="font-a"> 专家图片：</view>
+       <input type="text"  placeholder="专家图片" value='{{hospital.headimg}}' name="detail" bindinput="headimgChange"/>
+      </view>
+      <view class="btn-area">
+        <button type="submit" type="primary" class="btn" bindtap="edit">
+           修改
+        </button>
+        <button class="btn" bindtap="bindButtonTap">取消</button>
+      </view>
+  </view>
+</view>
+<tabbar user-auth="1" active="/pages/examine/examine"></tabbar> 

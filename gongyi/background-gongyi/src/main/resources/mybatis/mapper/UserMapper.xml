@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.commonweal.background.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.commonweal.background.entity.User" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="open_id" property="openId" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="welfare_id" property="welfareId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, open_id, name, welfare_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.commonweal.background.entity.User" >
+    insert into user (id, open_id, name, 
+      welfare_id)
+    values (#{id,jdbcType=BIGINT}, #{openId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{welfareId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.commonweal.background.entity.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="openId != null" >
+        open_id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="welfareId != null" >
+        welfare_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="openId != null" >
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="welfareId != null" >
+        #{welfareId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.commonweal.background.entity.User" >
+    update user
+    <set >
+      <if test="openId != null" >
+        open_id = #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="welfareId != null" >
+        welfare_id = #{welfareId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.commonweal.background.entity.User" >
+    update user
+    set open_id = #{openId,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      welfare_id = #{welfareId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByOpenId" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from user
+    where open_id = #{openId}
+  </select>
+</mapper>

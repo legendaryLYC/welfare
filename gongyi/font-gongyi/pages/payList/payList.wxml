@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<view class="container">
+  <view>
+    <view class="flex-wrp pay-title" style="flex-direction:row;">
+      支付订单表
+    </view>
+  </view>
+  <view class='table'>
+    <view class='tr'>
+      <view class='th'>缴费内容</view>
+      <view class='th'>数量</view>
+      <view class='th'>价格</view>
+    </view>
+    <view class='tr' wx:for="{{hospitalList}}"> 
+      <view class='td'>{{item.fee}}</view>
+      <view class='td'>{{item.num}}</view>
+      <view class='td'>{{item.total}}</view>
+    </view>
+    <button type="primary" bindtap="payMoney" class="btn_pay">
+      支付
+    </button>
+  </view>
+</view>
+<tabbar user-auth="0" active="/pages/reservation/reservation"></tabbar>  

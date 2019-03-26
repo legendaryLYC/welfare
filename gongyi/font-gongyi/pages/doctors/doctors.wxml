@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="section">
+    <view class="flex-wrp" style="flex-direction:row;">
+      <input type="text" confirm-type="search" bindinput="inputHospitalName" placeholder="请输入专家名" value="{{hospitalName}}" />
+      <view class="btn-area">
+        <button type="primary" size="mini"  bindtap="bindButtonTap">专家搜索</button>
+      </view>
+    </view>
+  </view>
+  <view class='table'>
+    <view class='tr'>
+      <view class='th' style="width:30%;">专家名</view>
+      <view class='th'>简介</view>
+    </view>
+    <view class='tr' bindtap="gotoPage" wx:for="{{hospitalList}}" data-page="/pages/appointment/appointment" data-id="{{item.id}}"> 
+      <view class='td' style="width:30%;">{{item.name}}</view>
+      <view class='td'>{{item.detail}}</view>
+    </view>
+    <view class='tr' wx:if="{{hospitalList.length == 0}}">
+      <view class='td'>暂无专家</view>
+    </view>
+  </view>
+</view>
+<tabbar user-auth="0" active="/pages/reservation/reservation"></tabbar>  

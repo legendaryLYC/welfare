@@ -1,0 +1,53 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='table'>
+    <view class='tr'>
+      <view class='th' style="width:30%;">
+        <image src='{{doctor.headimg}}' class="doc_img"
+          data-page="/pages/reservation/reservation"></image>
+        {{doctor.name}}
+      </view>
+      <view class='th'>
+        <view>简介:</view>
+        <view>{{doctor.detail}}</view>
+      </view>
+    </view>
+    <view class='tr datePick'>
+      <view class="section">
+        <picker
+          mode="date"
+          value="{{date}}"
+          start="2015-09-01"
+          end="2020-09-01"
+          bindchange="bindDateChange"
+        >
+          <view class="picker">
+            预约时间: {{date}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='tr datePick'>
+      <view class="section">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <view class="picker">
+            时段：{{array[index]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='tr'>
+      <button
+        type="primary"
+        size="{{primarySize}}"
+        bindtap="orderDoc"
+        data-id='{{doctor.id}}'
+      >
+        预约挂号
+      </button>
+    </view>
+  </view>
+
+  
+</view>
+<tabbar user-auth="0" active="/pages/reservation/reservation"></tabbar>  

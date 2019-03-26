@@ -1,0 +1,46 @@
+<!--index.wxml-->
+  <view style="margin-top:20px;">
+    <image src='{{welfareDetail.headImg}}' style="width:400px;height:120px;"></image>
+  </view>
+  <view class='table'>
+    <view class='tr'>
+      <view class='tdLeft'><text class="information">标题：</text><text class="detail">{{welfareDetail.title}}\n</text></view>
+    </view>
+    <view class='tr'>
+      <view class='tdLeft'><text class="information">摘要：</text><text class="detail">{{welfareDetail.remark}}\n</text></view>
+    </view>
+    <view class='tr'>
+      <view class='td'><text>目标众筹:\n</text><text>100万元</text></view>
+      <view class='td'><text>当前筹集:\n</text><text>30万元</text></view>
+      <view class='td'><text>捐款人次:\n</text><text>10万人</text></view>:
+    </view>
+  </view>
+  <view class='table' style="border:1px solid #bfbfbf">
+    <view class='tr'>
+       <view class='td'>
+         <view><rich-text>项目计划</rich-text></view>
+         <view><rich-text>{{welfareDetail.title}}</rich-text>
+          </view>  
+       </view>
+    </view>
+  </view>
+  <view class='table' style="border:1px solid #bfbfbf">
+   <view class='td'>
+    <view class='tdLeft' style="font-size:18px;font-weight:bold;">慈善机构信息：</view>
+    <view>慈善机构：{{welfareDetail.charityMission}}</view>
+    <view>机构负责人：{{welfareDetail.charityOfficer}}</view>
+   </view>
+  </view>
+   <view class='table' style="border:1px solid #bfbfbf">
+    <view class='tr' bindtap='navigator' data-page="/pages/homepage/homepage">
+      <view class="tdLeft" style="margin-bottom:15px;margin-left:25%;width:20%" bindtap="gotoPage" data-page="/pages/homepage/homepage">
+        <image src='/images/homepage.png' style="width:30px;height:30px;" data-page="/pages/homepage/homepage"></image>
+        <text>\n首页</text>
+      </view>
+      <view class="td">
+        <button type="primary" size="mini" style="margin-top:20px; margin-left:15%;" 
+            bindtap="gotoPage" data-page="/pages/donate/donate" data-id="{{welfareDetail.id}}">我要捐款
+        </button>
+      </view>
+    </view>
+   </view>

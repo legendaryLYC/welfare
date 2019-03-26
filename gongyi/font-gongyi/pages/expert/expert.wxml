@@ -1,0 +1,34 @@
+<!--pages/expert/expert.wxml-->
+<view class='bg-white padding'>
+  <view class="cu-list grid col-4">
+    <view class="cu-item">
+      <text>专家姓名</text>
+    </view>
+    <view class="cu-item">
+      <text>专家介绍</text>
+    </view>
+    <view class="cu-item">
+      <text>专家图片</text>
+    </view>
+    <view class="cu-item">
+      <text>操作</text>
+    </view>
+  </view>
+   <view class="cu-list grid col-4" wx:for="{{content}}">
+    <view class="cu-item" >
+      <text >{{item.name}}</text>
+    </view>
+    <view class="cu-item" >
+      <text >{{item.detail}}</text>
+    </view>
+    <view class="cu-item" >
+      <image src='{{item.headimg}}' class="doc_img"
+          data-page="/pages/reservation/reservation"></image>
+    </view>
+    <view class="cu-item" >
+      <view bindtap="gotoPage" data-page="/pages/edit-expert/edit-expert" data-id="{{item.id}}">修改/</view>
+      <view bindtap='del' data-id="{{item.id}}">删除</view>
+    </view>
+  </view>
+</view>
+<tabbar user-auth="1" active="/pages/expert/expert"></tabbar>  

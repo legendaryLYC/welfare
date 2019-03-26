@@ -1,0 +1,40 @@
+.table{
+  width:100%;
+}
+.tr{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  font-weight:bold;
+  font-size:10px;
+}
+.th{
+  padding:10px;
+  width:100%;
+  text-align: center;
+  font-size:13px;
+}
+.td{
+  padding:10px;
+  width:100%;
+  text-align: center;
+  font-size:15px;
+}
+.tdLeft{
+  text-align: left;
+  padding:10px;
+  width:100%;
+  font-size:15px;
+}
+.flex-wrp {display: flex;}
+.information
+{
+  margin-left:25px;
+  font-size:18px;
+  font-weight: 700px;
+}
+.detail{
+  margin-left:5px;
+  font-size:18px;
+  font-weight: 700px;
+}

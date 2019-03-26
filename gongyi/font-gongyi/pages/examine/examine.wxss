@@ -1,0 +1,8 @@
+/* pages/examine/examine.wxss */
+.cu-item{
+  position: absolute;
+
+  text-overflow:ellipsis;
+
+  word-wrap:break-word
+}

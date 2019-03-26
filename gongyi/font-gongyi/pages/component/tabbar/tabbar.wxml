@@ -1,0 +1,27 @@
+<!--pages/component/tabbar/tabbar.wxml-->
+<block wx:if="{{!userAuth}}">
+  <view class="cu-bar tabbar bg-white barsssss">
+    <view class="action" bindtap='navigator' data-page="/pages/homepage/homepage">
+      <view class='icon-cu-image' data-page="/pages/homepage/homepage">
+        <image src='/images/homepage.png' data-page="/pages/homepage/homepage"></image>
+      </view>
+    <view data-page="/pages/homepage/homepage" class='{{active == "/pages/homepage/homepage" ? "text-blue" : "text-gray"}}'>首页</view>
+  </view>
+
+    <view class="action" bindtap='navigator' data-page="/pages/sort/sort">
+      <view class='icon-cu-image' data-page="/pages/sort/sort">
+        <image src='/images/component.png' data-page="/pages/sort/sort"></image>
+      </view>
+      <view data-page="/pages/sort/sort" class='{{active == "/pages/sort/sort" ? "text-blue" : "text-gray"}}'>
+分类</view>
+    </view>
+
+    <view class="action" bindtap='navigator' data-page="/pages/index/index">
+      <view class='icon-cu-image' data-page="/pages/index/index">
+        <image src='/images/myself.png' data-page="/pages/index/index"></image>
+      </view>
+      <view data-page="/pages/index/index" class='{{active == "/pages/index/index" ? "text-blue" : "text-gray"}}'>
+我的</view>
+    </view>
+  </view>
+</block>

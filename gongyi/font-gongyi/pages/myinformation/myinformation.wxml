@@ -1,0 +1,46 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="section" >
+      <view class="title" >我的信息</view>
+     <view class="flex-wrp" style="flex-direction:row;">
+       <view class="font-a"> 姓名：</view>
+       <view>{{informationUser.name}}</view>
+      </view>
+      <view class="flex-wrp" style="flex-direction:row;">
+        <view class="font-a"> 性别：</view>
+        <view wx:if="{{informationUser.sex == 1}}">男</view>
+        <view wx:if="{{informationUser.sex == 0}}">女</view>
+        <view wx:if="{{informationUser.sex == null}}">未知</view>
+      </view>
+      <view class="flex-wrp" style="flex-direction:row;">
+       <view class="font-a"> 手机号：</view>
+       <view wx:if="{{informationUser.tel != null}}">{{informationUser.tel}}</view>
+       <view wx:if="{{informationUser.tel == null}}">空</view>
+      </view>
+      <view class="flex-wrp" style="flex-direction:row;">
+       <view class="font-a"> 身份证号：</view>
+       <view wx:if="{{informationUser.identify != null}}">{{informationUser.identify}}</view>
+       <view wx:if="{{informationUser.identify == null}}">空</view>
+      </view>
+      <view class="flex-wrp" style="flex-direction:row;">
+       <view class="font-a"> 家庭住址：</view>
+       <view wx:if="{{informationUser.address != null}}">{{informationUser.address}}</view>
+       <view wx:if="{{informationUser.address == null}}">空</view>
+      </view>
+      <view class="flex-wrp" style="flex-direction:row;">
+        <view class="font-a"> 就诊状态：</view>
+        <view wx:if="{{informationUser.status == 0}}">预约未缴费</view>
+        <view wx:if="{{informationUser.status == 1}}">医药待缴费</view>
+        <view wx:if="{{informationUser.status == 2}}">住院申请中</view>
+        <view wx:if="{{informationUser.status == 3}}">住院未缴费</view>
+        <view wx:if="{{informationUser.status == 4}}">就诊完成</view>
+        <view wx:if="{{informationUser.status == null}}">未预约</view>
+      </view>
+
+      <view class="btn-area">
+        <button type="primary" size = "mini"  bindtap="bindButtonTap">返回</button>
+      </view>
+
+  </view>
+</view>
+<tabbar user-auth="0" active="/pages/index/index"></tabbar>  

@@ -1,0 +1,41 @@
+<!--pages/examine/examine.wxml-->
+<view class='bg-white padding'>
+  <view class="cu-list grid col-5">
+    <view class="cu-item">
+      <text>姓名/性别</text>
+    </view>
+    <view class="cu-item">
+      <text>电话</text>
+    </view>
+    <view class="cu-item">
+      <text>身份证号</text>
+    </view>
+    <view class="cu-item">
+      <text>家庭住址</text>
+    </view>
+   <view class="cu-item">
+      <text>操作</text>
+    </view>
+  </view>
+  <view class="cu-list grid col-5" wx:for="{{content}}">
+    <view class="cu-item">
+      <text>{{item.name}}</text>
+      <text wx:if="{{item.sex == 1}}">男</text>
+      <text wx:if="{{item.sex == 0}}">女</text>
+    </view>
+    <view class="cu-item">
+      <text>{{item.tel}}</text>
+    </view>
+    <view class="cu-item">
+      <text>{{item.identify}}</text>
+    </view>
+    <view class="cu-item">
+      <text>{{item.address}}</text>
+    </view>
+    <view class="cu-item" >
+      <view  bindtap='yes' data-id="{{item.id}}">通过/</view >
+      <view  bindtap='no' data-id="{{item.id}}">拒绝</view >
+    </view>
+  </view>
+</view>
+<tabbar user-auth="1" active="/pages/examine/examine"></tabbar>

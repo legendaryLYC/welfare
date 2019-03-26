@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<view class="container" style="margin-top:-90px;">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <view class="table">
+        <view class="tr">
+          <view class="td"><image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+            <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+          </view>
+          <view class="td good"><text>公益捐赠\n{{userDetailInfo.welfareList.length}}次</text></view>
+          <view class="td good">累计捐款\n{{userDetailInfo.welfareList.length*20}}元</view>
+          <view class="td good">帮助项目\n{{userDetailInfo.welfareList.length}}个</view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class='table' style='border:1px solid #ccc;'>
+    <view class='tr' wx:for="{{userDetailInfo.welfareList}}">
+      <view class='td'><image src='{{item.headImg}}' style="width:70%;height:60px;margin-left:15%"></image></view>
+      <view class='th'>
+        <text>{{item.title}}\n</text>
+        <text>{{item.plan}}\n</text>
+        <text>{{item.remark}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<tabbar user-auth="0" active="/pages/index/index"></tabbar>  
